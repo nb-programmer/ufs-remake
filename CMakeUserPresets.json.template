@@ -1,0 +1,46 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 20,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "llvm-mos-cx16-Debug",
+            "displayName": "LLVM-MOS cx16-Debug",
+            "description": "",
+            "cacheVariables": {
+                "LLVM_MOS": "/opt/llvm-mos",
+                "CMAKE_BUILD_TYPE": "Debug"
+            },
+            "inherits": [
+                "llvm-mos-cx16"
+            ]
+        },
+        {
+            "name": "llvm-mos-cx16-Release",
+            "displayName": "LLVM-MOS cx16-Release",
+            "description": "",
+            "cacheVariables": {
+                "LLVM_MOS": "/opt/llvm-mos",
+                "CMAKE_BUILD_TYPE": "Release"
+            },
+            "inherits": [
+                "llvm-mos-cx16"
+            ]
+        },
+        {
+            "name": "llvm-mos-sim",
+            "displayName": "LLVM-MOS Simulator-Debug",
+            "cacheVariables": {
+                "LLVM_MOS": "/opt/llvm-mos",
+                "LLVM_MOS_PLATFORM": "sim",
+                "CMAKE_BUILD_TYPE": "Debug"
+            },
+            "inherits": [
+                "llvm-mos"
+            ]
+        }
+    ]
+}
