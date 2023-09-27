@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
+list(APPEND CMAKE_PREFIX_PATH "deps/")
 
 include("common-config")
 include("auto-toolchain")
@@ -23,6 +24,13 @@ if(LLVM_MOS)
     add_definitions(${LLVM_DEFINITIONS_LIST})
     enable_language(ASM)
 endif()
+
+
+add_subdirectory("deps/libSDL2pp")
+
+## Build SDL2pp
+target_compile_features(SDL2pp PRIVATE cxx_std_17)
+
 
 add_subdirectory("platform")
 
