@@ -9,7 +9,7 @@ include("auto-toolchain")
 project(
     ufs-${PROJECT_TARGET_NAME}
     DESCRIPTION "Hello World template for 8-bit platforms using CMake, targetting LLVM-MOS"
-    LANGUAGES ASM C CXX
+    LANGUAGES C CXX
     VERSION 1.0
 )
 
@@ -21,6 +21,7 @@ if(LLVM_MOS)
     include_directories(${LLVM_INCLUDE_DIRS})
     separate_arguments(LLVM_DEFINITIONS_LIST NATIVE_COMMAND ${LLVM_DEFINITIONS})
     add_definitions(${LLVM_DEFINITIONS_LIST})
+    enable_language(ASM)
 endif()
 
 add_subdirectory("platform")
